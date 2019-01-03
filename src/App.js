@@ -24,7 +24,7 @@ class App extends Component {
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({[event.target.name]: event.target.value});
     }
 
     setMarkerFromCoordinates() {
@@ -32,21 +32,21 @@ class App extends Component {
         Geocode.fromLatLng(this.state.lat, this.state.lng).then(
             response => {
                 const address = response.results[0].formatted_address;
-                setTimeout(()=>this.setState({name: address}));
-                console.log("From coordinates: " + address);
+                setTimeout(() => this.setState({name: address}));
+                console.log("From coordinates " + this.state.lat + ", " + this.state.lng + ":" + address);
             }
         );
     }
 
-    setMarkerFromName(){
+    setMarkerFromName() {
         Geocode.fromAddress(this.state.name).then(
             response => {
                 const {lat, lng} = response.results[0].geometry.location;
-                setTimeout(()=>{
+                setTimeout(() => {
                     this.setState({lat: lat});
                     this.setState({lng: lng});
                 });
-                console.log("From address:" + lat + ', ' + lng);
+                console.log("From address " + this.state.name + ": " + +lat + ', ' + lng);
             },
             error => {
                 console.error(error);
@@ -57,12 +57,15 @@ class App extends Component {
     render() {
         return (
             <div>
-                <input style={{display: 'block'}} type='text' name='lat' value={this.state.lat} onChange={this.handleChange}/>
-                <input style={{display: 'block'}} type='text' name='lng' value={this.state.lng} onChange={this.handleChange}/>
+                <input style={{display: 'block'}} type='text' name='lat' value={this.state.lat}
+                       onChange={this.handleChange}/>
+                <input style={{display: 'block'}} type='text' name='lng' value={this.state.lng}
+                       onChange={this.handleChange}/>
                 <button onClick={this.setMarkerFromCoordinates}>
                     Set Marker From Coordinates
                 </button>
-                <input style={{display: 'block'}} type='text' name='name' value={this.state.name} onChange={this.handleChange}/>
+                <input style={{display: 'block'}} type='text' name='name' value={this.state.name}
+                       onChange={this.handleChange}/>
                 <button onClick={this.setMarkerFromName}>
                     Set Marker From Name
                 </button>
