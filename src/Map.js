@@ -5,18 +5,28 @@ import './App.css';
 const Marker = ({text}) => <div className="marker">{text}</div>;
 
 class Map extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            center: {
+                lat: this.props.lat,
+                lng: this.props.lng
+            }
+        };
+    }
 
     render() {
+
         return (
             <GoogleMapReact
                 bootstrapURLKeys={{key: 'AIzaSyAhD7lkBbVnc1yZ2pHmtCJCR2OJh5yLNu0'}}
-                center={this.props.mapSettings.center}
-                zoom={this.props.mapSettings.zoom}
+                center={this.state.center}
+                zoom={1}
             >
                 <Marker
-                    lat={this.props.mapSettings.lat}
-                    lng={this.props.mapSettings.lng}
-                    text={this.props.mapSettings.name}
+                    lat={this.props.lat}
+                    lng={this.props.lng}
+                    text={this.props.name}
                 />
             </GoogleMapReact>
         );

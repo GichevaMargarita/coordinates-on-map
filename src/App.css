@@ -30,9 +30,3 @@
     transform: rotate(360deg);
   }
 }
-
-.marker{
-  background-image: url("Map-Marker-Ball-Azure-icon.png");
-  width: 20px;
-  height: 35px;
-}
