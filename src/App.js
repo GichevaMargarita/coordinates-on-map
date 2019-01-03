@@ -57,18 +57,24 @@ class App extends Component {
     render() {
         return (
             <div>
-                <input style={{display: 'block'}} type='text' name='lat' value={this.state.lat}
-                       onChange={this.handleChange}/>
-                <input style={{display: 'block'}} type='text' name='lng' value={this.state.lng}
-                       onChange={this.handleChange}/>
-                <button onClick={this.setMarkerFromCoordinates}>
-                    Set Marker From Coordinates
-                </button>
-                <input style={{display: 'block'}} type='text' name='name' value={this.state.name}
-                       onChange={this.handleChange}/>
-                <button onClick={this.setMarkerFromName}>
-                    Set Marker From Name
-                </button>
+                <div className="control">
+                    <div>
+                        <input style={{display: 'block'}} type='text' name='lat' value={this.state.lat}
+                               onChange={this.handleChange}/>
+                        <input style={{display: 'block'}} type='text' name='lng' value={this.state.lng}
+                               onChange={this.handleChange}/>
+                        <button onClick={this.setMarkerFromCoordinates}>
+                            Set Marker From Coordinates
+                        </button>
+                    </div>
+                    <div>
+                        <input style={{display: 'block'}} type='text' name='name' value={this.state.name}
+                               onChange={this.handleChange}/>
+                        <button onClick={this.setMarkerFromName}>
+                            Set Marker From Name
+                        </button>
+                    </div>
+                </div>
                 <div style={{height: '300px', width: '100%'}}>
                     <Map center={this.state.center} lat={this.state.lat} lng={this.state.lng} name={this.state.name}/>
                 </div>
