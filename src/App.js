@@ -3,7 +3,7 @@ import Geocode from "react-geocode";
 import Map from "./Map"
 import './App.css';
 
-Geocode.setApiKey("AIzaSyAhD7lkBbVnc1yZ2pHmtCJCR2OJh5yLNu0");
+Geocode.setApiKey("--key--");
 Geocode.enableDebug();
 
 class App extends Component {
